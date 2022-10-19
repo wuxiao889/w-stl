@@ -3,9 +3,11 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include "mstring.h"
+
 #include "boost/type_index.hpp"
+#include "mstring.h"
 #include "w_type_traits.h"
+#include "w_vector.h"
 
 using boost::typeindex::type_id_with_cvr;
 using namespace wxx;
@@ -76,9 +78,7 @@ struct MyIter : iterator<random_access_iterator_tag, T> {
 
   explicit operator bool() const { return ptr; }
 
-  int user_cnt() const{
-    return *cnt_;
-  }
+  int user_cnt() const { return *cnt_; }
 
   ~MyIter() {
     if (ptr) {
@@ -116,9 +116,36 @@ void func1_test();
 void distance_test();
 
 int main() {
-  func1_test();
-  iterator_category_test();
-  distance_test();
+  // func1_test();
+  // iterator_category_test();
+  // distance_test();
+  auto ite = wxx::vector<int>().begin();
+  std::cout << "value_type: " << type_id_with_cvr<decltype(ite)>().pretty_name()
+            << std::endl;
+  std::cout << "value_type: "
+            << type_id_with_cvr<decltype(value_type(ite))>().pretty_name()
+            << std::endl;
+  std::cout << "difference_type: "
+            << type_id_with_cvr<decltype(distance_type(ite))>().pretty_name()
+            << std::endl;
+  std::cout
+      << "iterator_category: "
+      << type_id_with_cvr<iterator_traits<decltype(ite)>::iterator_category>()
+             .pretty_name()
+      << std::endl;
+  std::cout
+      << "value_type: "
+      << type_id_with_cvr<iterator_traits<int *>::value_type>().pretty_name()
+      << std::endl;
+  std::cout << "difference_type: "
+            << type_id_with_cvr<iterator_traits<int *>::difference_type>()
+                   .pretty_name()
+            << std::endl;
+  std::cout << "iterator_category: "
+            << type_id_with_cvr<iterator_traits<int *>::iterator_category>()
+                   .pretty_name()
+            << std::endl;
+  // std::cout <<
 }
 
 void func1_test() {
@@ -193,7 +220,7 @@ void distance_test() {
 
   std::cout << type_id_with_cvr<decltype(is_POD(1))>().pretty_name()
             << std::endl;
-            
+
   std::cout << type_id_with_cvr<decltype(is_POD(MyIter<int>()))>().pretty_name()
             << std::endl;
 

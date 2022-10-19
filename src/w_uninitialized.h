@@ -1,5 +1,5 @@
-#ifndef __W_UNINITIALIZED__
-#define __W_UNINITIALIZED__
+#ifndef __W_UNINITIALIZED_H
+#define __W_UNINITIALIZED_H
 
 #include "w_type_traits.h"
 #include "w_construct.h"
@@ -142,4 +142,4 @@ uninitialized_fill_n(_ForwardIter __first, _Size __count, const _Tp& __x){
 }
 
 }  // namespace wxx
-#endif  // !__W_UNINITIALIZED__
+#endif  // !__W_UNINITIALIZED_H

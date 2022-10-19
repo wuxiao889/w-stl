@@ -1,5 +1,5 @@
-#ifndef __W_ALLOC__
-#define __W_ALLOC__
+#ifndef __W_ALLOC_H
+#define __W_ALLOC_H
 
 #include <assert.h>
 #include <stddef.h>
@@ -296,4 +296,4 @@ _Obj* volatile __default_alloc_template<__threads, __inst>::_S_free_list[_NFREEL
 };
 
 }  // namespace wxx
-#endif  // !__W_ALLOC__
+#endif  // !__W_ALLOC_H

@@ -1,5 +1,5 @@
-#ifndef __W_PAIR__
-#define __W_PAIR__
+#ifndef __W_PAIR_H
+#define __W_PAIR_H
 
 namespace wxx {
 
@@ -16,21 +16,24 @@ struct pair {
 };
 
 template <typename _T1, typename _T2>
-inline bool operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y) {
+inline bool 
+operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y) {
   return __x.first < __y.first ||
-         (!(__x.first < __y.first) && __x.second < __y.second);
+         (!(__y.first < __x.first) && __x.second < __y.second);
 }
 
 template <typename _T1, typename _T2>
-inline bool operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y) {
+inline bool 
+operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y) {
   return __x.first == __y.first && __x.second == __y.second;
 }
 
 template <typename _T1, typename _T2>
-inline pair<_T1, _T2> make_pair(const _T1& __x, const _T2& __y){
+inline pair<_T1, _T2> 
+make_pair(const _T1& __x, const _T2& __y){
   return pair<_T1, _T2>(__x, __y);
 }
 
-}  // namespace wxx
 
-#endif  // !__W_PAIR__
+}  // namespace wxx
+#endif  // !__W_PAIR_H

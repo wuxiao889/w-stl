@@ -1,29 +1,19 @@
 #include "w_vector.h"
 #include "mstring.h"
+#include "w_util.h"
 
 int main(){
   wxx::vector<int> t(10);
-  for(auto i : t){
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
+  showContainer(t);
 
   wxx::vector<int> t1(10,5);
-  for(auto i : t1){
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
+  showContainer(t1);
 
   auto v3(t1);
-  for(auto i : v3){
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
+  showContainer(v3);
+
   wxx::vector<int> v4(t1.begin()+4,t1.end());
-  for(auto i : v4){
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
+  showContainer(v4);
 
   wxx::vector<double> v5;
   std::cout << v5.capacity() << std::endl;
@@ -31,6 +21,18 @@ int main(){
   std::cout << v5.capacity() << std::endl;
 
   wxx::vector<wxx::String> vs;
-  vs.reserve(50);
-  
+  vs.reserve(3);
+  vs.push_back(wxx::String("slj"));
+  vs.push_back("nihao");
+  showContainer(vs);
+
+  wxx::vector<wxx::String> vs2(10,"hello");
+  showContainer(vs2);
+
+  vs = vs2;
+  showContainer(vs);
+
+  wxx::vector<wxx::String> vs3;
+  vs3.pop_back();
+  vs3.insert(vs3.begin(),"lskjl");
 }

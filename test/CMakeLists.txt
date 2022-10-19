@@ -6,6 +6,7 @@ foreach (wstl_test_source ${WSTL_TEST_SOURCES})
     # Create a human readable name.
     get_filename_component(wstl_test_filename ${wstl_test_source} NAME)
     string(REPLACE ".cpp" "" wstl_test_name ${wstl_test_filename})
+    string(REPLACE "w_" "" wstl_test_name ${wstl_test_name})
 
     # Add the test target separately and as part of "make check-tests".
     add_executable(${wstl_test_name}  ${wstl_test_source})

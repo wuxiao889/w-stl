@@ -1,5 +1,5 @@
-#ifndef __W_TYPE_TRAITS__
-#define __W_TYPE_TRAITS__
+#ifndef __W_TYPE_TRAITS_H
+#define __W_TYPE_TRAITS_H
 
 namespace wxx {
 
@@ -29,7 +29,7 @@ struct __type_traits<T*>
 };
 
 // 特化
-#define __wxx_has_true_type_traits(T)  \
+#define __W_HAS_TRUE_TYPE_TRAITS(T)  \
 template <>                             \
 struct __type_traits<T>                 \
 {                                       \
@@ -40,27 +40,27 @@ struct __type_traits<T>                 \
   typedef __true_type is_POD_type;   \
 };
 
-__wxx_has_true_type_traits(char)
+__W_HAS_TRUE_TYPE_TRAITS(char)
 
-__wxx_has_true_type_traits(signed char)
+__W_HAS_TRUE_TYPE_TRAITS(signed char)
 
-__wxx_has_true_type_traits(unsigned char)
+__W_HAS_TRUE_TYPE_TRAITS(unsigned char)
 
-__wxx_has_true_type_traits(short)
+__W_HAS_TRUE_TYPE_TRAITS(short)
 
-__wxx_has_true_type_traits(unsigned short)
+__W_HAS_TRUE_TYPE_TRAITS(unsigned short)
 
-__wxx_has_true_type_traits(int)
+__W_HAS_TRUE_TYPE_TRAITS(int)
 
-__wxx_has_true_type_traits(unsigned int)
+__W_HAS_TRUE_TYPE_TRAITS(unsigned int)
 
-__wxx_has_true_type_traits(long)
+__W_HAS_TRUE_TYPE_TRAITS(long)
 
-__wxx_has_true_type_traits(unsigned long)
+__W_HAS_TRUE_TYPE_TRAITS(unsigned long)
 
-__wxx_has_true_type_traits(float)
+__W_HAS_TRUE_TYPE_TRAITS(float)
 
-__wxx_has_true_type_traits(double)
+__W_HAS_TRUE_TYPE_TRAITS(double)
 
 template <typename T>
 inline typename __type_traits<T>::is_POD_type
@@ -68,6 +68,6 @@ is_POD(const T &){
   return typename __type_traits<T>::is_POD_type();
 }
 
-} // namespace wxx
 
+} // namespace wxx
 #endif // !__WXX_TYPE_TRAITS__

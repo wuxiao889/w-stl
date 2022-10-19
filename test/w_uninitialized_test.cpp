@@ -4,8 +4,6 @@
 
 using namespace wxx;
 
-
-
 template <typename _ForwardIter>
 void show_and_destroy(_ForwardIter __first, int n){
   _ForwardIter __cur = __first;
